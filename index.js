@@ -8,13 +8,13 @@ app.use(bodyParser.json());
 app.listen((process.env.PORT || 3000));
 
 // Server frontpage
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
     res.send('1699439425');
-});
+}); */
 
 // Facebook Webhook
 app.get('/webhook', function (req, res) {
-    if (req.query['hub.verify_token'] === 'AICLB-MS') {
+    if (req.query['hub.verify_token'] === 'testbot_verify_token') {
         res.send(req.query['hub.challenge']);
     } else {
         res.send('Invalid verify token');
